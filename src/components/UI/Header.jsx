@@ -1,4 +1,4 @@
-import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaTelegramPlane } from "react-icons/fa";
+import { FaWhatsapp, FaTelegram, FaYoutube, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
 export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
   return (
@@ -22,11 +22,11 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
           <div className="kg-actions">
 
             <div className="kg-social">
-              <a href="#"><FaFacebookF /></a>
-              <a href="#"><FaTwitter /></a>
+              <a href="#"><FaWhatsapp /></a>
+              <a href="#"><FaTelegram /></a>
               <a href="#"><FaYoutube /></a>
               <a href="#"><FaInstagram /></a>
-              <a href="#"><FaTelegramPlane /></a>
+              <a href=""><FaTelegramPlane /></a>
             </div>
 
 

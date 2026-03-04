@@ -8,11 +8,11 @@ const AdList = ({ searchTerm = "" }) => {
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Категория
   const [category, setCategory] = useState("Баары");
-
-  // Мына ушул сен айткан “Жаңы / Эски”
   const [sortBy, setSortBy] = useState("newest"); // newest | oldest | cheap | expensive
+
+  // 👇 Сколько показывать
+  const [visibleCount, setVisibleCount] = useState(10);
 
   useEffect(() => {
     setLoading(true);
@@ -37,6 +37,11 @@ const AdList = ({ searchTerm = "" }) => {
     return () => unsubscribe();
   }, [sortBy]);
 
+  // если поменял фильтры — снова показываем первые 10
+  useEffect(() => {
+    setVisibleCount(10);
+  }, [searchTerm, category, sortBy]);
+
   const handleDelete = async (id) => {
     if (window.confirm("Бул жарыяны чын эле өчүргүңүз келеби?")) {
       try {
@@ -57,19 +62,20 @@ const AdList = ({ searchTerm = "" }) => {
       })
       .filter((ad) => (category === "Баары" ? true : ad.category === category));
 
-    // Цена сортировка (если выбрал дешево/дорого)
     if (sortBy === "cheap") list = [...list].sort((a, b) => (a.price || 0) - (b.price || 0));
     if (sortBy === "expensive") list = [...list].sort((a, b) => (b.price || 0) - (a.price || 0));
 
-    // newest/oldest уже приходит из Firestore orderBy, можно не сортить тут
     return list;
   }, [ads, searchTerm, category, sortBy]);
+
+  // 👇 показываем только часть
+  const visibleAds = filteredAds.slice(0, visibleCount);
+  const hasMore = filteredAds.length > visibleCount;
 
   if (loading) return <Loader />;
 
   return (
     <div className="ad-list-container">
-      {/* Панель фильтров */}
       <div className="kg-filterbar">
         <div className="kg-filter-item">
           <span className="kg-filter-label">Категория</span>
@@ -101,10 +107,19 @@ const AdList = ({ searchTerm = "" }) => {
       </h2>
 
       <div className="ad-grid">
-        {filteredAds.map((ad) => (
+        {visibleAds.map((ad) => (
           <AdCard key={ad.id} ad={ad} onDelete={handleDelete} />
         ))}
       </div>
+
+      {/* Кнопка “Еще” */}
+      {hasMore && (
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
+          <button className="load-more-btn" onClick={() => setVisibleCount((v) => v + 10)}>
+            Еще
+          </button>
+        </div>
+      )}
     </div>
   );
 };
