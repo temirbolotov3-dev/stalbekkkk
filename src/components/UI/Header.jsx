@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaTelegram, FaYoutube, FaInstagram, FaTelegramPlane } from "react-icons/fa";
+import { FaWhatsapp, FaTelegram, FaYoutube, FaInstagram,  } from "react-icons/fa";
 
 export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
   return (
@@ -9,7 +9,7 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
         <div className="kg-top-inner">
 
           <div className="kg-brand">
-            <div className="kg-logo">24KG</div>
+            <div className="kg-logo">Seniors</div>
 
             <nav className="kg-lang">
               <a href="#">КЫР</a>
@@ -22,11 +22,11 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
           <div className="kg-actions">
 
             <div className="kg-social">
-              <a href="#"><FaWhatsapp /></a>
-              <a href="#"><FaTelegram /></a>
+              <a href="https://chat.whatsapp.com/D6p1THUxsWA9x1oO5jNGnp?mode=gi_t"><FaWhatsapp /></a>
+              <a href="https://t.me/c/2539162775/3"><FaTelegram /></a>
               <a href="#"><FaYoutube /></a>
-              <a href="#"><FaInstagram /></a>
-              <a href=""><FaTelegramPlane /></a>
+              <a href="wa.me/996779119890"><FaInstagram /></a>
+              
             </div>
 
 
@@ -60,15 +60,15 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
       {/* меню как 24kg */}
       <div className="kg-nav">
         <div className="kg-nav-inner">
-          <a href="#">Власть</a>
-          <a href="#">Общество</a>
-          <a href="#">Экономика</a>
-          <a href="#">Происшествия</a>
-          <a href="#">Спорт</a>
-          <a href="#">Технологии</a>
-          <a href="#">Спецпроекты</a>
-          <a href="#" className="right">English</a>
-          <a href="#">Бизнес</a>
+          <a href="#">Home</a>
+          <a href="#">О нас</a>
+          <a href="#">Контакты</a>
+          <a href="#">Footer</a>
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+        
+          <a href="#"></a>
         </div>
       </div>
 
