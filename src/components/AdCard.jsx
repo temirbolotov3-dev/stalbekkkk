@@ -11,7 +11,6 @@ const AdCard = ({ ad, onDelete }) => {
       )}
       <div className="ad-card-content">
         <h3>{ad.title}</h3>
-        <p className="price"><b>{ad.price} сом</b></p>
         <p><FaTag className="icon" /> {ad.category}</p>
         
         <div className="ad-card-actions">

@@ -1,14 +1,14 @@
-import { FaWhatsapp, FaTelegram, FaYoutube, FaInstagram,  } from "react-icons/fa";
+import { FaWhatsapp, FaTelegram, FaYoutube, FaInstagram } from "react-icons/fa";
+import imgg from "../../assets/1.png";
+import { Link } from "react-router-dom";
 
 export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
   return (
     <header className="kg-header">
-
-      {/* верхняя строка */}
       <div className="kg-top">
         <div className="kg-top-inner">
-
           <div className="kg-brand">
+            <img src={imgg} alt="" className="imggg" />
             <div className="kg-logo">Seniors</div>
 
             <nav className="kg-lang">
@@ -18,19 +18,22 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
             </nav>
           </div>
 
-
           <div className="kg-actions">
-
             <div className="kg-social">
-              <a href="https://chat.whatsapp.com/D6p1THUxsWA9x1oO5jNGnp?mode=gi_t"><FaWhatsapp /></a>
-              <a href="https://t.me/c/2539162775/3"><FaTelegram /></a>
-              <a href="#"><FaYoutube /></a>
-              <a href="wa.me/996779119890"><FaInstagram /></a>
-              
+              <a href="https://chat.whatsapp.com/D6p1THUxsWA9x1oO5jNGnp?mode=gi_t">
+                <FaWhatsapp />
+              </a>
+              <a href="https://t.me/c/2539162775/3">
+                <FaTelegram />
+              </a>
+              <a href="https://www.youtube.com/@argenduishobekov8876">
+                <FaYoutube />
+              </a>
+              <a href="https://wa.me/996779119890">
+                <FaInstagram />
+              </a>
             </div>
 
-
-            {/* ПОИСК */}
             <div className="kg-search">
               <input
                 placeholder="Поиск"
@@ -40,38 +43,26 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
               <button type="button">🔍</button>
             </div>
 
-
-            {/* КНОПКА ДОБАВЛЕНИЯ */}
-            <button className="add-post-btn" onClick={onOpenForm}>
+            <button className="hero-main-btn" onClick={onOpenForm}>
               + Жаңылык кошуу
             </button>
-
 
             <div className="kg-mini">
               <div className="kg-mini-line">Сегодня</div>
               <div className="kg-mini-line muted">Бишкекское время</div>
             </div>
-
           </div>
         </div>
       </div>
 
-
-      {/* меню как 24kg */}
       <div className="kg-nav">
         <div className="kg-nav-inner">
-          <a href="#">Home</a>
-          <a href="#">О нас</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">О нас</Link>
           <a href="#">Контакты</a>
           <a href="#">Footer</a>
-          <a href="#"></a>
-          <a href="#"></a>
-          <a href="#"></a>
-        
-          <a href="#"></a>
         </div>
       </div>
-
     </header>
   );
 }

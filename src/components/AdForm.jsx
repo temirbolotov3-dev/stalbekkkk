@@ -57,16 +57,7 @@ const AdForm = ({ onDone }) => {
         />
       </div>
 
-      <div className="input-group">
-        <FaDollarSign className="input-icon" />
-        <input
-          placeholder="Баасы"
-          type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-      </div>
+      
 
       <div className="input-group">
         <FaPhone className="input-icon" />

@@ -39,7 +39,7 @@ const AdList = ({ searchTerm = "" }) => {
 
   // если поменял фильтры — снова показываем первые 10
   useEffect(() => {
-    setVisibleCount(10);
+    setVisibleCount(9);
   }, [searchTerm, category, sortBy]);
 
   const handleDelete = async (id) => {
@@ -115,7 +115,7 @@ const AdList = ({ searchTerm = "" }) => {
       {/* Кнопка “Еще” */}
       {hasMore && (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
-          <button className="load-more-btn" onClick={() => setVisibleCount((v) => v + 10)}>
+          <button className="load-more-btn" onClick={() => setVisibleCount((v) => v + 9)}>
             Еще
           </button>
         </div>
