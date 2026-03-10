@@ -1,16 +1,15 @@
 import { useState } from "react";
 import { db } from "../firebase/config";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-
 import {
   FaPlus,
   FaTag,
   FaPhone,
-  FaImage,
   FaSpinner,
   FaUser,
   FaAlignLeft,
   FaRegNewspaper,
+  FaLink,
 } from "react-icons/fa";
 
 const AdForm = ({ onDone }) => {
@@ -28,8 +27,6 @@ const AdForm = ({ onDone }) => {
     setLoading(true);
 
     try {
-      
-
       await addDoc(collection(db, "ads"), {
         title,
         description,
@@ -52,7 +49,7 @@ const AdForm = ({ onDone }) => {
       alert("Жаңылык кошулду!");
       if (onDone) onDone();
     } catch (err) {
-      console.error(err);
+      console.error("ADD DOC ERROR:", err);
       alert("Ката кетти. Кайра аракет кылыңыз!");
     } finally {
       setLoading(false);
@@ -106,7 +103,7 @@ const AdForm = ({ onDone }) => {
       <div className="input-group">
         <FaPhone className="input-icon" />
         <input
-          placeholder="Телефон (мис: 996...)"
+          placeholder="Телефон"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
@@ -117,25 +114,12 @@ const AdForm = ({ onDone }) => {
         <FaLink className="input-icon" />
         <input
           type="url"
-          placeholder="Сүрөттүн URL шилтемеси"
+          placeholder="Сүрөт URL"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           required
         />
       </div>
-
-      {imageUrl && (
-        <div className="news-preview">
-          <img
-            src={imageUrl}
-            alt="preview"
-            className="news-preview-image"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        </div>
-      )}
 
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="Политика">Политика</option>

@@ -7,10 +7,10 @@ export default function AdCard({ ad }) {
   return (
     <div className="news-card">
       <img
-        src={ad.imageUrl || "https://via.placeholder.com/600x350?text=No+Image"}
-        alt={ad.title}
-        className="news-image"
-      />
+  src={ad.imageUrl || "https://via.placeholder.com/600x350?text=No+Image"}
+  alt={ad.title}
+  className="news-image"
+/>
 
       <div className="news-content">
         <h3 className="news-title">{ad.title || "Без названия"}</h3>
