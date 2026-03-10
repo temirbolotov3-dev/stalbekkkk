@@ -14,7 +14,6 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
             <nav className="kg-lang">
               <a href="#">КЫР</a>
               <a href="#">ENG</a>
-              <a href="#" className="muted">НАШИ УСЛУГИ</a>
             </nav>
           </div>
 
@@ -59,8 +58,8 @@ export default function Header({ searchTerm, setSearchTerm, onOpenForm }) {
         <div className="kg-nav-inner">
           <Link to="/">Home</Link>
           <Link to="/about">О нас</Link>
-          <a href="#">Контакты</a>
-          <a href="#">Footer</a>
+          <Link to="/contacts">Контакты</Link>
+          <a href="#footer">Footer</a>
         </div>
       </div>
     </header>

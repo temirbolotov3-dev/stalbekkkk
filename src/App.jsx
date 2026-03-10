@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/UI/header";
 import NewsHero from "./components/UI/NewsHero";
 import AboutUs from "./components/AboutUs";
+import Footer from "./components/UI/Footer";
+import Contacts from "./components/Contacts";
 
 function HomePage({ searchTerm }) {
   return (
@@ -37,6 +39,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage searchTerm={searchTerm} />} />
         <Route path="/about" element={<AboutUs />} />
+        
+      </Routes>
+
+      <Routes>
+        <Route path="/contacts" element={<Contacts />} />
       </Routes>
 
       {openForm && (
@@ -58,6 +65,7 @@ function App() {
       )}
 
       <ToastContainer position="bottom-right" autoClose={3000} />
+      <Footer/>
     </>
   );
 }

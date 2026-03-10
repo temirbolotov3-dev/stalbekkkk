@@ -1,29 +1,40 @@
-import { FaTrash, FaWhatsapp, FaTag, FaPhoneAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaTag } from "react-icons/fa";
 
-const AdCard = ({ ad, onDelete }) => {
-  const cleanPhone = ad.phone ? ad.phone.replace(/\D/g, '') : "";
-  const whatsappUrl = `https://wa.me/${cleanPhone}?text=Саламатсызбы! Сиздин "${ad.title}" жарыяңыз боюнча жазып жатам.`;
-
+export default function AdCard({ ad, onDelete }) {
   return (
-    <div className="ad-card">
-      {ad.imageUrl && (
-        <img src={ad.imageUrl} alt={ad.title} className="ad-card-image" />
-      )}
-      <div className="ad-card-content">
-        <h3>{ad.title}</h3>
-        <p><FaTag className="icon" /> {ad.category}</p>
-        
-        <div className="ad-card-actions">
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="wa-btn">
-            <FaWhatsapp /> WhatsApp
-          </a>
-          <button onClick={() => onDelete(ad.id)} className="delete-btn">
-            <FaTrash />
-          </button>
+    <div className="news-card">
+
+      <img src={ad.image} alt={ad.title} className="news-image" />
+
+      <div className="news-content">
+
+        <h3 className="news-title">{ad.title}</h3>
+
+        <p className="news-description">
+          {ad.description}
+        </p>
+
+        <div className="news-meta">
+
+          <span>
+            <FaCalendarAlt />{" "}
+            {ad.createdAt?.toDate
+              ? ad.createdAt.toDate().toLocaleDateString()
+              : ""}
+          </span>
+
+          <span>
+            <FaTag /> {ad.category}
+          </span>
+
         </div>
+
+        <button className="read-more">
+          Читать полностью
+        </button>
+
       </div>
+
     </div>
   );
-};
-
-export default AdCard;
+}
