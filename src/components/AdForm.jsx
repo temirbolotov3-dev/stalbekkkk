@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { db } from "../firebase/config";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { uploadImage } from "../utils/uploadImage";
+
 import {
   FaPlus,
   FaTag,
@@ -19,8 +19,8 @@ const AdForm = ({ onDone }) => {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("Seniors News");
   const [phone, setPhone] = useState("");
-  const [category, setCategory] = useState("Электроника");
-  const [image, setImage] = useState(null);
+  const [category, setCategory] = useState("Политика");
+  const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -28,8 +28,7 @@ const AdForm = ({ onDone }) => {
     setLoading(true);
 
     try {
-      let imageUrl = "";
-      if (image) imageUrl = await uploadImage(image);
+      
 
       await addDoc(collection(db, "ads"), {
         title,
@@ -47,8 +46,8 @@ const AdForm = ({ onDone }) => {
       setContent("");
       setAuthor("Seniors News");
       setPhone("");
-      setCategory("Электроника");
-      setImage(null);
+      setCategory("Политика");
+      setImageUrl("");
 
       alert("Жаңылык кошулду!");
       if (onDone) onDone();
@@ -114,14 +113,29 @@ const AdForm = ({ onDone }) => {
         />
       </div>
 
-      <label className="file-label">
-        <FaImage /> Сүрөт тандаңыз
+      <div className="input-group">
+        <FaLink className="input-icon" />
         <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files?.[0] || null)}
+          type="url"
+          placeholder="Сүрөттүн URL шилтемеси"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          required
         />
-      </label>
+      </div>
+
+      {imageUrl && (
+        <div className="news-preview">
+          <img
+            src={imageUrl}
+            alt="preview"
+            className="news-preview-image"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        </div>
+      )}
 
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="Политика">Политика</option>

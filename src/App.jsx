@@ -9,6 +9,7 @@ import NewsHero from "./components/UI/NewsHero";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/UI/Footer";
 import Contacts from "./components/Contacts";
+import NewsDetails from "./components/NewsDetails";
 
 function HomePage({ searchTerm }) {
   return (
@@ -44,6 +45,7 @@ function App() {
 
       <Routes>
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="/news/:id" element={<NewsDetails />} />
       </Routes>
 
       {openForm && (

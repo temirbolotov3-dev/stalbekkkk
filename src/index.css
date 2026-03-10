@@ -54,10 +54,7 @@ body{
   margin: 0 auto;
 }
 
-/* “подложка” как у новостных сайтов */
-.kg-container > *{
-  /* чтобы форма/список смотрелись на светлом фоне */
-}
+
 
 .kg-surface{
   background: rgba(255,255,255,0.92);
@@ -1452,6 +1449,18 @@ body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
   margin-bottom:15px;
 }
 
+
+.news-preview {
+  margin: 10px 0 14px;
+}
+
+.news-preview-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
 .read-more{
   background:#1e3a8a;
   color:white;
@@ -1463,4 +1472,52 @@ body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
 
 .read-more:hover{
   background:#1e40af;
+}
+
+.news-details-page{
+  padding: 30px 20px 60px;
+}
+
+.news-details-container{
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.news-details-image{
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.news-details-title{
+  font-size: 36px;
+  margin: 0 0 14px;
+}
+
+.news-details-meta{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.news-details-description{
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.news-details-content{
+  font-size: 17px;
+  line-height: 1.7;
+  color: #222;
+  white-space: pre-line;
 }
